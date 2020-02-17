@@ -2,3 +2,5 @@ parsed_videos.json
 parsed_video_info.json
 raw_data
 .ipynb_checkpoints
+raw_data_no_labels.csv
+raw_data.feather
