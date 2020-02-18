@@ -4,3 +4,6 @@ raw_data
 .ipynb_checkpoints
 raw_data_no_labels.csv
 raw_data.feather
+raw_with_label_old.csv
+raw_with_label.ods
+no_label_excel.xlsx
