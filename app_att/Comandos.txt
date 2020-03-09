@@ -1,0 +1,5 @@
+DOCKER BUILD
+docker build . -t name
+
+
+DOCKER RUN
