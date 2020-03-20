@@ -1,11 +1,15 @@
 import os.path
-from flask import Flask
+from flask import Flask, redirect, url_for, render_template
 import os
 import json
 import run_backend
 import time
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
+
+app.config.update(
+    SEND_FILE_MAX_AGE_DEFAULT = 0
+)
 
 def get_predictions():
     
@@ -39,20 +43,14 @@ def get_predictions():
         predictions_formatted.append("<tr><th><a href=\"{link}\">{title}</a></th><th>{score}</th></tr>".format(
         title=e[1], link=e[0],score=e[2]))
         
-    return '\n'.join(predictions_formatted), last_update
+    return predictions, last_update, 
     
 
     
 @app.route('/')
 def main_page():
     preds, last_update = get_predictions()
-    return """<head><h1>Youtube Video Recommender</h1></head>
-    <body>
-    Seconds since last update: {}
-    <table>
-            {}
-    </table>
-    </body>""".format((time.time_ns() - last_update) / 1e9, preds)
+    return render_template("index.html", preds=preds)
 
 
 if __name__ == '__main__':
