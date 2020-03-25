@@ -9,3 +9,6 @@ This project has as goal to inprove the experience of search and find youtube vi
 ## Project Link    
 https://yt-recomendation.herokuapp.com/
 
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
